@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+main {
+  background-color: white
+}
+
+.box{
+  height: 200px;
+  width: 200px;
+  background-color: yellow;
+}

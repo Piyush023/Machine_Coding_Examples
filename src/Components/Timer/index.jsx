@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import MouseHoverTimer from "./MouseHoverTimer";
 
 const Timer = () => {
   const timeInterval = useRef(null);
@@ -10,7 +11,6 @@ const Timer = () => {
         setTime((prev) => prev + 1);
       }, 1000);
     } else if (isPauseClicked) {
-      console.log("if");
       clearInterval(timeInterval.current);
       setTime(time);
     }
@@ -39,6 +39,7 @@ const Timer = () => {
         Pause
       </button>
       <button onClick={() => reset()}>Reset</button>
+      <MouseHoverTimer />
     </div>
   );
 };
