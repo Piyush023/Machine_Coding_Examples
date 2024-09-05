@@ -4,6 +4,7 @@ import TodoList from './Components/List/TodoList';
 import HomePage from './Components/Home';
 import Timer from './Components/Timer';
 import CountDown from './Components/CountDownTimer/CountDown';
+import { MouseFollow } from './Components/FollowMouse';
 
 const App = () => {
 
@@ -15,6 +16,7 @@ const App = () => {
           <Route path="todo" element={<TodoList />} />
           <Route path="timer" element={<Timer />} />
           <Route path="countdown" element={<CountDown />} />
+          <Route path="mouse" element={<MouseFollow />} />
         </Route>
       </Routes>
     </BrowserRouter>
