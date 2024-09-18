@@ -1,5 +1,3 @@
-import "./App.css";
-
 export const MouseFollow = () => {
     const moveDiv = (e) => {
         const circle = document.getElementById("circle")
