@@ -3,6 +3,7 @@ import { useTimer } from '../../hooks/useTimer'
 import { useState } from 'react'
 
 function CountDown() {
+    console.log('Timer')
     const [timerInput, setTimerInput] = useState({ hr: 0, min: 0, sec: 0 })
     const [hr, setHr] = useState(0)
     const [timerStart, setTimerStart] = useState(0)
