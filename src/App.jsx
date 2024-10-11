@@ -7,20 +7,19 @@ import CountDown from './Components/CountDownTimer/CountDown';
 import { MouseFollow } from './Components/FollowMouse';
 
 const App = () => {
-
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/">
+        <Route path='/'>
           <Route index element={<HomePage />} />
-          <Route path="todo" element={<TodoList />} />
-          <Route path="timer" element={<Timer />} />
-          <Route path="countdown" element={<CountDown />} />
-          <Route path="mouse" element={<MouseFollow />} />
+          <Route path='todo' element={<TodoList />} />
+          <Route path='timer' element={<Timer />} />
+          <Route path='countdown' element={<CountDown />} />
+          <Route path='mouse' element={<MouseFollow />} />
         </Route>
       </Routes>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

@@ -1,5 +1,5 @@
-import { useRef, useState } from "react";
-import MouseHoverTimer from "./MouseHoverTimer";
+import { useRef, useState } from 'react';
+import MouseHoverTimer from './MouseHoverTimer';
 
 const Timer = () => {
   const timeInterval = useRef(null);
@@ -44,4 +44,4 @@ const Timer = () => {
   );
 };
 
-export default Timer
+export default Timer;
