@@ -6,9 +6,10 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  // Disabling the Strict mode for the Folder Structure Call Issue
+  //   <React.StrictMode>
+  <App />
+  //    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
