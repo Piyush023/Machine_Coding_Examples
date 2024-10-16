@@ -6,6 +6,8 @@ import Timer from './Components/Timer';
 import CountDown from './Components/CountDownTimer/CountDown';
 import { MouseFollow } from './Components/FollowMouse';
 import FolderStruc from './Components/FolderStructure';
+import Tabs from './Components/Tabs/Tabs';
+import ProgressBar from './Components/ProgressBar';
 
 const App = () => {
   return (
@@ -18,6 +20,8 @@ const App = () => {
           <Route path='countdown' element={<CountDown />} />
           <Route path='mouse' element={<MouseFollow />} />
           <Route path='folder' element={<FolderStruc />} />
+          <Route path='Tab_form' element={<Tabs />} />
+          <Route path='progress_bar' element={<ProgressBar />} />
         </Route>
       </Routes>
     </BrowserRouter>

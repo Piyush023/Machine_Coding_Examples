@@ -20,6 +20,7 @@ const Timer = () => {
     clearInterval(timeInterval.current);
     setTime(0);
   };
+
   return (
     <div>
       <h1>Timer</h1>
