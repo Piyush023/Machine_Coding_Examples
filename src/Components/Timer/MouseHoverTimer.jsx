@@ -1,5 +1,5 @@
-import { useRef } from "react";
-import { useState } from "react";
+import { useRef } from 'react';
+import { useState } from 'react';
 
 const MouseHoverTimer = () => {
   const [time, setTime] = useState(0);
@@ -26,7 +26,7 @@ const MouseHoverTimer = () => {
       <h1>Mouse Hover Timer</h1>
       {/* Box */}
       <div
-        className="box"
+        className='box'
         onMouseEnter={() => startTimer(true)}
         onMouseLeave={() => startTimer(false)}
       >

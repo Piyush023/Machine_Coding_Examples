@@ -7,7 +7,7 @@ function TodoList() {
     { id: 1, name: 'Todo-1' },
   ];
   const [listItems, setListItems] = useState(initTodo);
-  const [addItem, setAddItem] = useState(initTodo);
+  const [addItem, setAddItem] = useState();
 
   const deleteItemCb = (index) => {
     setListItems(listItems.filter((item) => item.id !== index));
