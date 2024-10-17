@@ -19,7 +19,9 @@ const InfiniteScrollList = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
+  // This is for the Infinite Scroll
   const observer = useRef();
+  // This will check if the element is the last element or not and if it is last then it will make a api call on the basis of the new IntersectionObserver object and if it is not the last element it will disconnect the observer and reset its value. All of this is checked on the basis of the node.
   const lastElementObserver = useCallback((node) => {
     if (loading) {
       return;

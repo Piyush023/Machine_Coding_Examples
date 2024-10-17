@@ -9,6 +9,9 @@ import FolderStruc from './Components/FolderStructure';
 import Tabs from './Components/Tabs/Tabs';
 import ProgressBar from './Components/ProgressBar';
 import InfiniteScroll from './Components/InfiniteScroll/InfiniteScroll';
+import AutoComplete from './Components/AutoSuggestion/AutoComplete';
+import Form from './Components/StepperForm/Form';
+import MPBar from './Components/MultipleProgressBar/MultipleProgressBar';
 
 const App = () => {
   return (
@@ -25,6 +28,9 @@ const App = () => {
           <Route path='progress_bar' element={<ProgressBar />} />
           {/* Zepto Interview Prep Questions */}
           <Route path={'infinite_scroll'} element={<InfiniteScroll />} />
+          <Route path={'autoComplete'} element={<AutoComplete />} />
+          <Route path={'stepperForm'} element={<Form />} />
+          <Route path={'mpbar'} element={<MPBar />} />
         </Route>
       </Routes>
     </BrowserRouter>
