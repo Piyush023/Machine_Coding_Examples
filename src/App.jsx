@@ -8,6 +8,7 @@ import { MouseFollow } from './Components/FollowMouse';
 import FolderStruc from './Components/FolderStructure';
 import Tabs from './Components/Tabs/Tabs';
 import ProgressBar from './Components/ProgressBar';
+import InfiniteScroll from './Components/InfiniteScroll/InfiniteScroll';
 
 const App = () => {
   return (
@@ -22,6 +23,8 @@ const App = () => {
           <Route path='folder' element={<FolderStruc />} />
           <Route path='Tab_form' element={<Tabs />} />
           <Route path='progress_bar' element={<ProgressBar />} />
+          {/* Zepto Interview Prep Questions */}
+          <Route path={'infinite_scroll'} element={<InfiniteScroll />} />
         </Route>
       </Routes>
     </BrowserRouter>
