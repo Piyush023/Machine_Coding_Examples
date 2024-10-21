@@ -18,7 +18,6 @@ const Tabs = () => {
           return (
             <div
               onClick={() => {
-                console.log('Click', item.id);
                 setActiveTab({ id: item.id, title: item.title });
               }}
               style={{

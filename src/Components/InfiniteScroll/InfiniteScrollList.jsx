@@ -11,8 +11,8 @@ const InfiniteScrollList = (props) => {
   const fetchData = useCallback(() => {
     if (!query) {
       setLoading(true);
+      // This (getData) will return a Promise -
       getData(query, pageNumber.current).finally(() => {
-        // This will return a Promise
         setLoading(false);
       });
     }

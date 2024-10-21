@@ -45,7 +45,6 @@ const AutoCompleteInput = ({
   };
 
   const debounce = function (cb, wait) {
-    console.log('func');
     let timer = null;
     return function (...args) {
       const context = this;

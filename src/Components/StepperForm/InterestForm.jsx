@@ -1,23 +1,6 @@
 import React, { useState } from 'react';
 
 const InterestForm = ({ formData, setFormData }) => {
-  const [selectedVal, setSelectedVal] = useState('');
-  const [selectedOption, setSelectedOption] = useState('');
-
-  const handleChange = (e) => {
-    console.log(e.target.value);
-    setSelectedVal(e.target.value);
-    setFormData({ ...formData, habits: e.target.value });
-  };
-
-  const handleOptionChange = (e) => {
-    setSelectedOption(e.target.value);
-    setFormData({
-      ...formData,
-      fav_Game: [...formData.fav_Game, e.target.value],
-    });
-  };
-
   const dropDownOptions = [
     { value: 'Football', label: 'Football' },
     { value: 'Cricket', label: 'Cricket' },
@@ -29,6 +12,27 @@ const InterestForm = ({ formData, setFormData }) => {
     { value: 'Cricket', label: 'Cricket' },
     { value: 'Other', label: 'Other' },
   ];
+
+  const [selectedOption, setSelectedOption] = useState(checkBoxOptions);
+
+  const handleChange = (e) => {
+    // setSelectedVal(e.target.value);
+    setFormData({ ...formData, habits: e.target.value });
+  };
+
+  const handleOptionChange = (e) => {
+    if (selectedOption.includes(e.target.value)) {
+      // Remove item if it's already selected
+      setSelectedOption(selectedOption.filter((i) => i !== e.target.value));
+    } else {
+      // Add item if it's not selected
+      setSelectedOption([...selectedOption, e.target.value]);
+    }
+    setFormData({
+      ...formData,
+      fav_Game: [...formData.fav_Game, selectedOption],
+    });
+  };
 
   return (
     <div>

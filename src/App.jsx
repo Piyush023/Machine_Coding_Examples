@@ -12,6 +12,8 @@ import InfiniteScroll from './Components/InfiniteScroll/InfiniteScroll';
 import AutoComplete from './Components/AutoSuggestion/AutoComplete';
 import Form from './Components/StepperForm/Form';
 import MPBar from './Components/MultipleProgressBar/MultipleProgressBar';
+import Pagination from './Components/Pagination/Pagination';
+import Folder from './Components/FolderTree/Folder';
 
 const App = () => {
   return (
@@ -31,6 +33,8 @@ const App = () => {
           <Route path={'autoComplete'} element={<AutoComplete />} />
           <Route path={'stepperForm'} element={<Form />} />
           <Route path={'mpbar'} element={<MPBar />} />
+          <Route path={'pagination'} element={<Pagination />} />
+          <Route path={'treeFolder'} element={<Folder />} />
         </Route>
       </Routes>
     </BrowserRouter>

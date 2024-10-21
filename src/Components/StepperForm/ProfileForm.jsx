@@ -1,7 +1,6 @@
 import React from 'react';
 
 const ProfileForm = ({ formData, setFormData }) => {
-  console.log(formData, 'data');
   return (
     <div>
       <h1>Profile</h1>

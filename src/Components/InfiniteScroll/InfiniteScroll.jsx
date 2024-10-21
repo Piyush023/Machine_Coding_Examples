@@ -37,7 +37,7 @@ const InfiniteScroll = () => {
         resolve();
       } catch (err) {
         reject();
-        console.log(err, 'Error in the API');
+        throw new Error('Error in the API');
       }
     });
   }, []);

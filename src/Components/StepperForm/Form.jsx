@@ -31,14 +31,12 @@ const Form = () => {
       content: <SettingForm formData={formData} setFormData={setFormData} />,
     },
   ];
-  console.log(pageContent.length - page);
 
   const progressBarLength = useCallback(() => {
     const progressPercentage = ((page + 1) / pageContent.length) * 100;
     return `${Math.min(progressPercentage, 100)}%`;
   }, [pageContent.length, page]);
 
-  console.log(progressBarLength());
   return (
     <div className='form'>
       {/* Progress Bar */}

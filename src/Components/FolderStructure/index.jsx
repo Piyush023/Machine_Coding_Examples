@@ -61,12 +61,8 @@ const FolderStruc = () => {
     });
   };
 
-  const handle0LvlFileAdd = () => {
-    console.log('0Root File Add');
-  };
-  const handle0LvlFolderAdd = () => {
-    console.log('0 Root File Add');
-  };
+  const handle0LvlFileAdd = () => {};
+  const handle0LvlFolderAdd = () => {};
 
   const nestedFolderAdd = (index) => {
     // const addedFolder = {
@@ -76,11 +72,8 @@ const FolderStruc = () => {
     //   name: `NestedFolder${index}`,
     // };
     const updatedRoot = [...rootFolder];
-    console.log(updatedRoot[index]);
-    // console.log(rootFolder);
     // setRootFolder((prevState) => {
     //   const updatedRoot = [...prevState];
-    //   console.log(updatedRoot[index]);
     //   updatedRoot[index].nestedFiles = [
     //     ...updatedRoot[index].nestedFiles,
     //     addedFolder,
@@ -89,9 +82,7 @@ const FolderStruc = () => {
     // });
   };
 
-  const nestedFileAdd = () => {
-    console.log('Nested Folder Add');
-  };
+  const nestedFileAdd = () => {};
 
   const deleteFile = (name) => {};
 
