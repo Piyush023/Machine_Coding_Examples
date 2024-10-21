@@ -14,6 +14,7 @@ import Form from './Components/StepperForm/Form';
 import MPBar from './Components/MultipleProgressBar/MultipleProgressBar';
 import Pagination from './Components/Pagination/Pagination';
 import Folder from './Components/FolderTree/Folder';
+import StarRating from './Components/StarRating/StarRating';
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
           <Route path={'mpbar'} element={<MPBar />} />
           <Route path={'pagination'} element={<Pagination />} />
           <Route path={'treeFolder'} element={<Folder />} />
+          <Route path={'star'} element={<StarRating />} />
         </Route>
       </Routes>
     </BrowserRouter>

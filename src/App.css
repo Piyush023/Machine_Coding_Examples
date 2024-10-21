@@ -106,3 +106,25 @@ main {
   justify-content: space-between;
   cursor: pointer;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.star-container {
+  font-size: 40px;
+}
+
+.star {
+  padding: 5px;
+  color: gray;
+  cursor: pointer;
+}
+
+.star-filled {
+  color: #ffdf00;
+  padding: 5px;
+  cursor: pointer;
+}
