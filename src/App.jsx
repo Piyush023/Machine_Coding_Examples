@@ -15,6 +15,7 @@ import MPBar from './Components/MultipleProgressBar/MultipleProgressBar';
 import Pagination from './Components/Pagination/Pagination';
 import Folder from './Components/FolderTree/Folder';
 import StarRating from './Components/StarRating/StarRating';
+import ChessBoard from './Components/Chessboard/index';
 
 const App = () => {
   return (
@@ -37,6 +38,7 @@ const App = () => {
           <Route path={'pagination'} element={<Pagination />} />
           <Route path={'treeFolder'} element={<Folder />} />
           <Route path={'star'} element={<StarRating />} />
+          <Route path={'chess'} element={<ChessBoard />} />
         </Route>
       </Routes>
     </BrowserRouter>
