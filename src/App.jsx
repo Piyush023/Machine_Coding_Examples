@@ -38,6 +38,7 @@ const App = () => {
           <Route path={'pagination'} element={<Pagination />} />
           <Route path={'treeFolder'} element={<Folder />} />
           <Route path={'star'} element={<StarRating />} />
+          {/* IVP INTERVIEW QUESTION */}
           <Route path={'chess'} element={<ChessBoard />} />
         </Route>
       </Routes>
