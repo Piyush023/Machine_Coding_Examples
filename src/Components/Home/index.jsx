@@ -1,9 +1,10 @@
 import React from 'react';
+import CheerUp from '../CheerUp';
 
 const HomePage = () => {
   return (
     <div>
-      <h1>HomePage</h1>
+      <CheerUp />
     </div>
   );
 };
