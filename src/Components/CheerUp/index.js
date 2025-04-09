@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Play, Pause, Heart } from 'lucide-react';
+import { Play, Pause, Heart, MapPin } from 'lucide-react';
 import Button from '../ui/button';
 
 // Import images
@@ -126,6 +126,8 @@ export default function CheerUp() {
   const [playing, setPlaying] = useState(false);
   const [audio, setAudio] = useState(null);
   const [showConfetti, setShowConfetti] = useState(true);
+  const [userLocation, setUserLocation] = useState(null);
+  const [locationError, setLocationError] = useState(null);
   const [animationCompleted, setAnimationCompleted] = useState(false);
   const [windowSize, setWindowSize] = useState({
     width: typeof window !== 'undefined' ? window.innerWidth : 1200,
@@ -222,6 +224,48 @@ export default function CheerUp() {
         document.body.style.overflow = 'auto';
       }
     };
+  }, []);
+
+  // Function to get user's current location
+  const getUserLocation = () => {
+    if (!navigator.geolocation) {
+      setLocationError('Geolocation is not supported by your browser');
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        setUserLocation({
+          latitude,
+          longitude,
+          timestamp: new Date().toISOString(),
+        });
+
+        // Store location in localStorage
+        localStorage.setItem(
+          'userLocation',
+          JSON.stringify({
+            latitude,
+            longitude,
+            timestamp: new Date().toISOString(),
+          })
+        );
+      },
+      (error) => {
+        setLocationError(error.message);
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0,
+      }
+    );
+  };
+
+  // Request location on component mount
+  useEffect(() => {
+    getUserLocation();
   }, []);
 
   // Audio toggle function
@@ -575,6 +619,28 @@ export default function CheerUp() {
 
       {/* Gradient background */}
       <div className='gradient-bg'></div>
+
+      {/* Location display at the top */}
+      <motion.div
+        className='fixed top-4 left-4 right-4 z-50 flex justify-between items-center'
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className='flex items-center space-x-2 bg-white/20 backdrop-blur-sm p-3 rounded-lg text-sm'>
+          <MapPin size={16} />
+          {userLocation ? (
+            <div>
+              <p>Lat: {userLocation.latitude.toFixed(4)}</p>
+              <p>Lng: {userLocation.longitude.toFixed(4)}</p>
+            </div>
+          ) : locationError ? (
+            <p className='text-red-200'>Location access denied</p>
+          ) : (
+            <p>Getting location...</p>
+          )}
+        </div>
+      </motion.div>
 
       {/* Show heart confetti only when needed */}
       {showConfetti && <HeartConfetti />}
@@ -982,6 +1048,49 @@ export default function CheerUp() {
           </div>
         </footer>
       </div>
+
+      {/* Add location button */}
+      <motion.div
+        className='fixed bottom-4 right-4 z-50'
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 1 }}
+      >
+        <Button
+          className='flex items-center space-x-2 bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 px-4 py-2 rounded-full text-sm shadow-lg'
+          onClick={getUserLocation}
+        >
+          <span>Get Location</span>
+        </Button>
+      </motion.div>
+
+      {/* Display location info */}
+      {userLocation && (
+        <motion.div
+          className='fixed bottom-4 left-4 z-50 bg-white/20 backdrop-blur-sm p-3 rounded-lg text-sm'
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <p>Latitude: {userLocation.latitude.toFixed(4)}</p>
+          <p>Longitude: {userLocation.longitude.toFixed(4)}</p>
+          <p className='text-xs opacity-70'>
+            Last updated: {new Date(userLocation.timestamp).toLocaleString()}
+          </p>
+        </motion.div>
+      )}
+
+      {/* Display error if any */}
+      {locationError && (
+        <motion.div
+          className='fixed bottom-4 left-4 z-50 bg-red-500/20 backdrop-blur-sm p-3 rounded-lg text-sm text-red-200'
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <p>Error: {locationError}</p>
+        </motion.div>
+      )}
     </div>
   );
 }
